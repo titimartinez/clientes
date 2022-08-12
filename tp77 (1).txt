@@ -1,0 +1,51 @@
+1)-
+CREATE TABLE tiendas (
+  id                int NOT NULL PRIMARY KEY,
+  nombre_comercial  varchar(30),
+  tipo              int,
+  direccion         varchar(30),
+  cp                int,
+  poblacion         int,
+  lat               float(20),
+  ing               float(20)
+) ENGINE = InnoDB;
+INSERT INTO tiendas (id, nombre_comercial, tipo, direccion, cp, poblacion, lat, ing) VALUES
+  (9, 'Media 22', 1, 'Castello 109', 7600, 1, -38.0053801, -57.55464792),
+  (7, 'Walarce', 1, 'calle de orense', 7600, 1, 38.005329, -57.5553),
+  (8, 'Boston', 1, 'calle de fuencarral, 104', 7600, 1, -38.0037, -57.5517);
+
+
+2)-
+a)-
+SELECT 
+*
+FROM
+  `tiendas`
+WHERE
+  `tiendas`.`direccion` LIKE '%Castello%'
+b)-
+SELECT 
+*
+FROM
+  `tiendas`
+WHERE
+  `tiendas`.`cp` = 7600 AND 
+  `tiendas`.`poblacion` = 1
+c)-
+SELECT 
+*
+FROM
+  `tiendas`
+WHERE
+  `tiendas`.`tipo` = 1
+d)-
+SELECT MAX(`tiendas`.lat)as maximo FROM `tiendas`
+e)-
+SELECT MIN(`tiendas`.ing)as minimo FROM `tiendas`
+  
+
+3)-
+INSERT INTO tiendas (id, nombre_comercial, tipo, direccion, cp, poblacion, lat, ing) VALUES
+  (9, 'EEM 22', 1, 'Castello 109', 7600, 1, -38.0053801, -57.55464792),
+  (7, 'Walarce', 1, 'calle de orense', 7600, 1, -38.00001, -57.5553),
+  (8, 'Ochoa', 1, 'calle de fuencarral, 104', 7600, 1, -38.0037, -57.5517);
